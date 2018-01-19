@@ -58,6 +58,9 @@ void train_detector(char *datacfg, char *cfgfile, char *weightfile, int *gpus, i
     double time;
     int count = 0;
     //while(i*imgs < N*120){
+
+    int lasti = 0;
+    printf("net->max_batches: %d\n", net->max_batches);
     while(get_current_batch(net) < net->max_batches){
         if(l.random && count++%10 == 0){
             printf("Resizing\n");
@@ -133,13 +136,14 @@ void train_detector(char *datacfg, char *cfgfile, char *weightfile, int *gpus, i
             sprintf(buff, "%s/%s.backup", backup_directory, base);
             save_weights(net, buff);
         }
-        if(i%1000==0){
+        if(lasti/1000 != i/1000){
 #ifdef GPU
             if(ngpus != 1) sync_nets(nets, ngpus, 0);
 #endif
             char buff[256];
             sprintf(buff, "%s/%s_%d.weights", backup_directory, base, i);
             save_weights(net, buff);
+            lasti = i;
         }
         free_data(train);
     }

@@ -7,9 +7,20 @@ For more information see the [Darknet project website](http://pjreddie.com/darkn
 
 For questions or issues please use the [Google Group](https://groups.google.com/forum/#!forum/darknet).
 
-#GPU#
+# 使用GPU时设置环境变量
 
 export PATH=/usr/local/cuda-8.0/bin:$PATH
 
 export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH
+
+增加1个分类的训练脚本
+
+mytrain/prepare.sh
+
+mytrain/creat_list.py
+
+mytrain/voc_label.py
+
+mytrain/train.sh
+
 

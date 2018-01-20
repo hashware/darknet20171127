@@ -13,7 +13,7 @@ export PATH=/usr/local/cuda-8.0/bin:$PATH
 
 export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH
 
-增加1个分类的训练脚本
+# 1个分类的训练脚本
 
 mytrain/prepare.sh
 

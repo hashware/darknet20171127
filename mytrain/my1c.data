@@ -1,0 +1,6 @@
+classes= 1
+train  = train.txt
+valid  = to_val.txt
+names = label.names
+backup = backup
+
